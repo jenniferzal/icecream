@@ -15,7 +15,8 @@ $flavors = array("vanilla", "chocolate", "strawberry", "caramel");
 $cones = array("sugar"=>"Sugar Cone", "waffle"=>"Waffle Cone", "cup"=>"Cup", "choc"=>"Chocolate Dipped Waffle Cone");
 
 //Include html header
-include ('header.html');
+$title = "Order Form";
+include ('header.php');
 
 ?>
 
