@@ -1,3 +1,21 @@
+<?php
+/*
+ * Jennifer Zaldivar
+ * 4/11/23
+ * 328/icecream/index.php
+ * Order form for Ice Cream shop
+ *
+ */
+
+//Turn on error reporting
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
+//Define array
+$flavors = array("vanilla", "chocolate", "strawberry", "caramel");
+$cones = array("sugar"=>"Sugar Cone", "waffle"=>"Waffle Cone", "cup"=>"Cup", "choc"=>"Chocolate Dipped Waffle Cone");
+
+?>
 
 <!doctype html>
 <html lang="en">
@@ -14,9 +32,22 @@
     <form action="process.php" method="post">
 
         <h3>Choose a flavor</h3>
-        <label><input type='checkbox' name='flavor[]' value='vanilla'> Vanilla</label><br><label><input type='checkbox' name='flavor[]' value='chocolate'> Chocolate</label><br><label><input type='checkbox' name='flavor[]' value='strawberry'> Strawberry</label><br><label><input type='checkbox' name='flavor[]' value='caramel'> Caramel</label><br>
+        <?php
+            foreach ($flavors as $flavor)
+            {
+                echo "<label><input type='checkbox' name='flavor[]' value='$flavor'>". ucfirst($flavor) ."</label><br>";
+
+            }
+        ?>
+
         <h3>Choose One</h3>
-        <label><input type='radio' name='cone' value='sugar'> Sugar Cone</label><br><label><input type='radio' name='cone' value='waffle'> Waffle Cone</label><br><label><input type='radio' name='cone' value='cup'> Cup</label><br>
+        <?php
+            foreach ($cones as $value=>$label)
+            {
+                echo "<label><input type='radio' name='cone' value='$value'>$label</label><br>";
+            }
+        ?>
+
         <h3>How many scoops?</h3>
         <input type="text" name="scoops" ><br>
 
